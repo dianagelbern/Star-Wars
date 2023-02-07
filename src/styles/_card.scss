@@ -1,0 +1,41 @@
+.card {
+    background-color: #2B2B2B;
+    width: 20rem;
+    overflow: hidden;
+    margin: 2rem;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    @include border-radius(0.5rem);
+    /* using the mixins function */
+
+    img {
+        height: 15rem;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .card_content {
+        padding: $spacing;
+    }
+
+    .card_title {
+        margin: 0;
+        color: white;
+    }
+
+    .card_description {
+        margin: 0;
+        color: white;
+    }
+
+    &_dark {
+
+        background-color: black;
+
+        .card_title {
+            color: white;
+        }
+    }
+
+}

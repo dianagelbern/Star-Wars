@@ -1,0 +1,9 @@
+.body_content {
+  display: flex;
+  min-height: 100vh; }
+  .body_content__sidebar {
+    flex: 0 0 240px;
+    background-color: lightblue; }
+  .body_content__content {
+    flex: 1;
+    padding: 40px; }

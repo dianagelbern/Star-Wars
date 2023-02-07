@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+@import 'card';
+@import 'list';
+
+
+body {
+    font-family: $fonts; /* variable usage */
+    background-color: $primary-color;
+    display: flex;
+    min-height: 100vh;
+    @include flex-center(); /* using the mixins function */
+}

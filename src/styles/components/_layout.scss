@@ -1,5 +1,6 @@
 .layout{
     display: flex;
+    
     height: 100vh;
 }
 
@@ -17,18 +18,31 @@
 
 .menu_element{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     color: white;
     font-size: 25px;
     text-decoration: none;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     white-space: nowrap;
+    align-items: center;
 }
 
 .menu_element--selected,
-.menu_element:hover{
+.menu_element:hover {
     font-family: $fonts !important; 
     font-weight: 700;
-    color: #F2DC20;
+    color: #F0A500 !important;
+}
+.button_icon{
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+
+.button_icon--selected,
+.button_icon:hover{
+    margin-right: 10px;
+    font-size: 25px;
+    color: #F0A500;
 }

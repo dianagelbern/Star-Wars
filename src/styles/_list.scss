@@ -1,8 +1,7 @@
 .body_list{
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    justify-content: center;
+    justify-content: start;
     overflow:hidden; 
     overflow-y:scroll;
     
@@ -30,6 +29,57 @@
     display: none;
   }
 
+.button_pagination{
+    background-color: #353430;
+    border: transparent;
+    border-radius: 5px;
+    align-items: center;
+    width: 50px;
+    align-items: center;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.button_pagination_center{
+    background-color: #F0A500;
+    border-radius: 100px;
+    align-items: center;
+    width: 50px;
+    align-items: center;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buttons_page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 
+.sorter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    width: auto;
+    // border: 1px solid red;
+}
+
+.sorter div , .sorter select {
+    
+    padding: 0px 10px;
+}
+
+.sorter select {
+    width: 105px;
+}
 

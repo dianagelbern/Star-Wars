@@ -1,6 +1,9 @@
 .header{
     height: 70px;
+    width: 100vw;
     background-color: rgb(53, 38, 185);
+    display: flex;
+    justify-content: space-between;
 }
 
 .header > p{
@@ -8,4 +11,19 @@
     font-weight: 600;
     color: white;
     margin: 20px;
+}
+
+.icons_header{
+    margin-right: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.subheader{
+    display:flex;
+    justify-content: space-between;
+}
+.subheader p {
+ color: white;   
 }

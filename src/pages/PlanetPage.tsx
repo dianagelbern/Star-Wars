@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { CardData } from "../components/CardData";
 import { Header } from "../components/Header";
 import { API_BASE } from "../const/constants";
-import '../styles/style.scss'
-import { SearchForm } from "./SearchForm";
+import '../styles/style.scss';
+import { SearchForm } from "../components/SearchForm";
 
 export const PlanetPage = () => {
     const [query, setQuery] = useState("");
@@ -19,12 +19,6 @@ export const PlanetPage = () => {
         console.log(results);
     };
 
-    const cardData = {
-        title : '',
-        text1: '',
-        text2: ''
-    }
-
     useEffect(() => {
         
         getData();
@@ -35,7 +29,7 @@ return (
     <div className="main_content">
         <Header></Header>
 
-        <h1>Planets</h1>
+        <h1 className="body_title">Planets</h1>
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="body_list">
                     {results.map((result, index) => (

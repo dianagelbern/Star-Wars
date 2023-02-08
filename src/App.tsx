@@ -3,55 +3,45 @@ import './App.css';
 import { Header } from './components/Header';
 import { BrowserRouter, Routes, Route, NavLink, Outlet, Link } from "react-router-dom";
 import { PeoplePage } from './pages/PeoplePage';
-import { StarShipPage } from './pages/StarshipsPage';
+import { StarshipPage } from './pages/StarshipsPage';
 import { VehiclePage } from './pages/VehiclesPage';
 import { PlanetPage } from './pages/PlanetPage';
+import { Layout } from './components/Layout';
 
 function App() {
   return (
     <>
-      
+
       <div className='layout'>
-        
-      <BrowserRouter>
+
+
+        <BrowserRouter>
+          <Layout />
+            
+            <Routes>
+              
+              <Route path="/" element={<PlanetPage />} />
+              <Route path="people" element={<PeoplePage />} />
+              <Route path="starships" element={<StarshipPage />} />
+              <Route path="vehicles" element={<VehiclePage />} />
+
+            </Routes>
+          
+        </BrowserRouter>
+
+        {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<PlanetPage />} />
             <Route path="people" element={<PeoplePage />} />
-            <Route path="starships" element={<StarShipPage />} />
+            <Route path="starships" element={<StarshipPage />} />
             <Route path="vehicles" element={<VehiclePage />} />
-            <Route path="*" element={<VehiclePage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
       </div>
     </>
   );
 }
-
-const Layout = () => {
-  return (
-    <>
-      <nav className='side_nav'>
-          <ul>
-            <li>
-              <Link to="/">Planets</Link>
-            </li>
-            <li>
-              <Link to="/starships">Starships</Link>
-            </li>
-            <li>
-              <Link to="/people">People</Link>
-            </li>
-            <li>
-              <Link to="/vehicles">Vehicles</Link>
-            </li>
-          </ul>
-        </nav>
-
-      <Outlet />
-    </>
-  )
-};
 
 export default App;

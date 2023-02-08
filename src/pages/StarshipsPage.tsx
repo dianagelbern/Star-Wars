@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { CardData } from "../components/CardData";
 import { Header } from "../components/Header";
 import { API_BASE } from "../const/constants";
-import { SearchForm } from "./SearchForm";
+import { SearchForm } from "../components/SearchForm";
 
-export const StarShipPage = () => {
+export const StarshipPage = () => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<any[]>([]);
+    const [filter, setFilter] = useState();
+
+    
 
     const getData = () => {
         fetch(`${API_BASE}starships/?search=${query}`)
@@ -15,7 +18,6 @@ export const StarShipPage = () => {
             .catch((error) => console.log(error));
 
         setResults(results);
-        console.log(results);
     };
 
 
@@ -24,12 +26,18 @@ export const StarShipPage = () => {
         getData();
     }, [query]);
 
+    const filtered = filter ? results.filter((d) => d.filter === filter) : results;
+
+    // const sortByCrew = results.sort((a, b) =>  a.localeCompare(b, undefined, { numeric: true }));
+    // const sortBycargo_capacity = results.sort((a, b) =>  a.localeCompare(b, undefined, { numeric: true }));
+    // const normalData = results;
+
 
 return (
     <div className="main_content">
         <Header></Header>
 
-        <h1>Starship</h1>
+        <h1 className="body_title">Starship</h1>
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="body_list">
                     {results.map((result, index) => (
@@ -42,6 +50,7 @@ return (
                         />
                     ))}
                 </div>
+                
     </div>
 )
 }

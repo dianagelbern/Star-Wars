@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CardData } from "../components/CardData";
 import { Header } from "../components/Header";
 import { API_BASE } from "../const/constants";
-import { SearchForm } from "./SearchForm";
+import { SearchForm } from "../components/SearchForm";
 
 export const VehiclePage = () => {
     const [query, setQuery] = useState("");
@@ -15,7 +15,6 @@ export const VehiclePage = () => {
             .catch((error) => console.log(error));
 
         setResults(results);
-        console.log(results);
     };
 
     useEffect(() => {
@@ -23,23 +22,25 @@ export const VehiclePage = () => {
     }, [query]);
 
 
-return (
-    
-    <div className="main_content">
-        <Header></Header>
-        <h1>Vehicles</h1>
-                <SearchForm query={query} setQuery={setQuery} />
-                <div className="body_list">
-                    {results.map((result, index) => (
+    return (
 
-                        <CardData
-                            key={index}
-                            title={result.name}
-                            text1={result.max_atmosphering_speed}
-                            text2={result.cost_in_credits}
-                        />
-                    ))}
-                </div>
-    </div>
-)
+        <div className="main_content">
+            <Header></Header>
+            <div>
+                <h1 className="body_title">Vehicles</h1>
+                <SearchForm query={query} setQuery={setQuery} />
+            </div>
+            <div className="body_list">
+                {results.map((result, index) => (
+
+                    <CardData
+                        key={index}
+                        title={result.name}
+                        text1={result.max_atmosphering_speed}
+                        text2={result.cost_in_credits}
+                    />
+                ))}
+            </div>
+        </div>
+    )
 }

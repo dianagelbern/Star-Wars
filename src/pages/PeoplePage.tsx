@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { CardData } from "../components/CardData";
 import { Header } from "../components/Header";
+import { SearchForm } from "../components/SearchForm";
 import { API_BASE } from "../const/constants";
 import '../styles/style.scss'
-import { SearchForm } from "./SearchForm";
-
 export const PeoplePage = () => {
       const [query, setQuery] = useState("");
     const [results, setResults] = useState<any[]>([]);
@@ -31,7 +30,7 @@ return (
     <div className="main_content">
         <Header></Header>
 
-        <h1>People</h1>
+        <h1 className="body_title">People</h1>
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="body_list">
                     {results.map((result, index) => (

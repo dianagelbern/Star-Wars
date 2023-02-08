@@ -1,21 +1,25 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 export const Layout = () => {
+  /*
+  
+  */
     return (
       <>
         <nav className='side_nav'>
-            <ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star Wars logo" className="nav_image" />
+        <ul>
               <li>
-                <Link to="/">Planets</Link>
+                <NavLink className='menu_element'  to="/">Planets</NavLink>
               </li>
               <li>
-                <Link to="/starships">Starships</Link>
+                <NavLink className='menu_element'  to="/starships">Starships</NavLink>
               </li>
               <li>
-                <Link to="/people">People</Link>
+                <NavLink className='menu_element'  to="/people">People</NavLink>
               </li>
               <li>
-                <Link to="/vehicles">Vehicles</Link>
+                <NavLink className='menu_element'  to="/vehicles">Vehicles</NavLink>
               </li>
             </ul>
           </nav>

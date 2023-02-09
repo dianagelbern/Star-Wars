@@ -10,10 +10,12 @@ interface ICardData{
 }
 
 export const CardData = (props: ICardData) => {
+      // console.log(props.cardImage);
+
     return (
         <>
                   <div className="card">
-                        <img src="https://reactjs.org/logo-og.png" alt="react logo" style={{ width: '400px', }} />
+                        <img src={props.cardImage!} alt="react logo" style={{ width: '400px', }} />
                         <div className="card_content">
                               <h2 className="card_title">{props.title}</h2>
                               <p className="card_description">{props.info1}{props.text1}</p>

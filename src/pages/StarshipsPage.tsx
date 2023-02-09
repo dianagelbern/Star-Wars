@@ -7,6 +7,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faArrowUpWideShort, faArrowDownWideShort, faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
 import { Footer } from "../components/Footer";
 
+
+import xwing from '../assets/starships/xwing.png';
+import cr90corvette from '../assets/starships/cr90corvette.png';
+import deathstar from '../assets/starships/deathstar.png';
+import rebeltransport from '../assets/starships/rebeltransport.png';
+import ywing from '../assets/starships/ywing.png';
+import executorBF2 from '../assets/starships/executor_bf2.png';
+import imperialClassStarDestroyer from '../assets/starships/imperialclassstardestroyer.png';
+import milleniumfalcon from '../assets/starships/milleniumfalcon.png';
+import imageVoid from '../assets/big-placeholder.jpg';
+
 export enum Sort {
     ASC,
     DESC,
@@ -20,6 +31,8 @@ export const StarshipPage = () => {
 
     const [newPage, setNewPage] = useState(Boolean);
     const [sortCrew, setSortCrew] = useState(Sort.NONE);
+
+    const starshipsInAssets = [deathstar, xwing, cr90corvette, milleniumfalcon, rebeltransport, ywing, executorBF2, imperialClassStarDestroyer];
 
     //const [isSortByCrew, setIsSortByCrew] = useState(false);
 
@@ -37,7 +50,17 @@ export const StarshipPage = () => {
         //setSort(sort)
     };
 
+    const getImage = (starships: string) => {
 
+        for (let i = 0; i < starshipsInAssets.length; i++) {
+            const namePlanet = starshipsInAssets[i].toLowerCase();
+
+            if (namePlanet.includes(starships.split(' ').join('').toLowerCase())) {
+                return namePlanet;
+            }
+        }
+        return imageVoid;
+    }
 
     useEffect(() => {
 
@@ -125,6 +148,7 @@ export const StarshipPage = () => {
             <div className="card_list">
                 {results.map((result, index) => (
                     <CardData
+                    cardImage={getImage(result.name)}
                         info1={"Cargo capacity: "}
                         info2={"Crew: "}
                         key={index}

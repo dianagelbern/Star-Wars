@@ -6,7 +6,10 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SearchForm } from "../components/SearchForm";
 import { API_BASE } from "../const/constants";
-import '../styles/style.scss'
+import '../styles/style.scss';
+
+
+
 export const PeoplePage = () => {
     const [query, setQuery] = useState("");
     const [page, setPage] = useState(1);
@@ -54,6 +57,7 @@ export const PeoplePage = () => {
                 {results.map((result, index) => (
 
                     <CardData
+                    
                         key={index}
                         info1={"Gender: "}
                         info2={"Birth year: "}

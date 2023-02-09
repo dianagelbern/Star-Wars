@@ -1,11 +1,11 @@
 @import 'variables';
 @import 'mixins';
-@import 'card';
-@import 'list';
 @import 'components/search';
 @import 'components/sidebar';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/_card';
+@import 'pages/_list';
 
 body {
     margin: 0;

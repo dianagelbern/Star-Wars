@@ -9,34 +9,45 @@ export const Sidebar = () => {
   return (
     <>
       <nav className='sidebar'>
-        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star Wars logo" className="nav_image" />
-        <ul>
-          <li className="button_nav">
-        
-            <NavLink to="/" className="menu_element">
-              <FontAwesomeIcon icon={faEarth} color={"white"} size={"1x"} className={"button_icon"} />
-              Planets
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star Wars logo" className="nav_image" />
+        <ul className="list">
+          <li>
+
+            <NavLink to="/" >
+              <div className="menu_element">
+                <FontAwesomeIcon icon={faEarth} color={"white"} size={"1x"} className={"button_icon"} />
+                <h3>Planets</h3>
+              </div>
+
             </NavLink>
           </li>
-          <li className="button_nav">
+          <li >
 
-            <NavLink className='menu_element' to="/starships">
-              <FontAwesomeIcon icon={faShuttleSpace} color={"white"} size={"1x"} className={"button_icon"} />
-              Starships
+            <NavLink to="/starships">
+              <div className='menu_element'>
+                <FontAwesomeIcon icon={faShuttleSpace} color={"white"} size={"1x"} className={"button_icon"} />
+                <h3>Starships</h3>
+              </div>
+
             </NavLink>
           </li>
-          <li className="button_nav">
+          <li >
 
-            <NavLink className='menu_element' to="/people">
-              <FontAwesomeIcon icon={faUsers} color={"white"} size={"1x"} className={"button_icon"} />
-              People
+            <NavLink to="/people">
+              <div className='menu_element'>
+                <FontAwesomeIcon icon={faUsers} color={"white"} size={"1x"} className={"button_icon"} />
+                <h3> People</h3>
+              </div>
             </NavLink>
           </li>
-          <li className="button_nav">
+          <li >
 
-            <NavLink className='menu_element' to="/vehicles">
-              <FontAwesomeIcon icon={faTruck} color={"white"} size={"1x"} className={"button_icon"} />
-              Vehicles
+            <NavLink to="/vehicles">
+              <div className='menu_element'>
+                <FontAwesomeIcon icon={faTruck} color={"white"} size={"1x"} className={"button_icon"} />
+                <h3>Vehicles</h3>
+              </div>
+
             </NavLink>
           </li>
         </ul>

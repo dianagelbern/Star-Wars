@@ -15,7 +15,7 @@ export const CardData = (props: ICardData) => {
     return (
         <>
                   <div className="card">
-                        <img src={props.cardImage!} alt="react logo" style={{ width: '400px', }} />
+                        <img src={props.cardImage!} alt="react logo" style={{ width: '100%', objectFit: 'cover'}} />
                         <div className="card_content">
                               <h2 className="card_title">{props.title}</h2>
                               <p className="card_description">{props.info1}{props.text1}</p>

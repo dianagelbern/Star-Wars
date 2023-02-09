@@ -7,7 +7,7 @@ import { Header } from "../components/Header";
 import { SearchForm } from "../components/SearchForm";
 import { API_BASE } from "../const/constants";
 import '../styles/style.scss';
-
+import imageVoid from '../assets/big-placeholder.jpg';
 
 
 export const PeoplePage = () => {
@@ -49,15 +49,15 @@ export const PeoplePage = () => {
 
                     <button className="button_pagination_center">{page}</button>
                     {
-                        newPage &&
-                        <button  className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
+                        newPage ?
+                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button> : <div className="button_void"></div>}
                 </div>
             </div>
             <div className="card_list">
                 {results.map((result, index) => (
 
                     <CardData
-                    
+                        cardImage={imageVoid}
                         key={index}
                         info1={"Gender: "}
                         info2={"Birth year: "}

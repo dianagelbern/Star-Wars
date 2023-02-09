@@ -18,36 +18,41 @@ import imperialClassStarDestroyer from '../assets/starships/imperialclassstardes
 import milleniumfalcon from '../assets/starships/milleniumfalcon.png';
 import imageVoid from '../assets/big-placeholder.jpg';
 
+// export enum Sort {
+//     ASC,
+//     DESC,
+//     NONE
+// }
 export enum Sort {
-    ASC,
-    DESC,
-    NONE
+    NONE = 0 as any,
+    CREW = 1 as any,
+    CARGO = 2 as any,
 }
 
 export const StarshipPage = () => {
+
+ 
+
+
     const [query, setQuery] = useState("");
     const [page, setPage] = useState(1);
     const [results, setResults] = useState<any[]>([]);
 
     const [newPage, setNewPage] = useState(Boolean);
-    const [sortCrew, setSortCrew] = useState(Sort.NONE);
+    const [sortAscToDescCrew, setSortAscToDescCrew] = useState(false);
+    const [sortAscToDescCargo, setSortAscToDescCargo] = useState(false);
+    const [sort, setSort] = useState('');
 
     const starshipsInAssets = [deathstar, xwing, cr90corvette, milleniumfalcon, rebeltransport, ywing, executorBF2, imperialClassStarDestroyer];
-
-    //const [isSortByCrew, setIsSortByCrew] = useState(false);
-
 
     const getData = () => {
         fetch(`${API_BASE}starships/?search=${query}&page=${page}`)
             .then((response) => response.json())
             .then((data) => { setResults(data.results); setNewPage(data.next != null); })
             .catch((error) => console.log(error));
-
-        //isSortByCrew ? setResults(results.sort((a,b) => parseFloat(a.crew) - parseFloat(b.crew))) : setResults(results);
         setResults(results);
-
+        setSort('');
         setNewPage(newPage);
-        //setSort(sort)
     };
 
     const getImage = (starships: string) => {
@@ -63,26 +68,37 @@ export const StarshipPage = () => {
     }
 
     useEffect(() => {
-
+        
         getData();
 
     }, [query, page]);
 
+    useEffect(() => {
+        
+        if(sort == ''){
+            getData();
+        }
+
+    }, [sort]);
 
     const handleSort = () => {
 
 
-        switch (sortCrew) {
+        switch (sort) {
 
-            case Sort.ASC:
+            case 'crew':
 
-                setResults(results.slice().sort((a, b) => parseFloat(b.crew) - parseFloat(a.crew)));
+                sortAscToDescCrew ? 
+                setResults(results.slice().sort((a, b) => parseFloat(b.crew) - parseFloat(a.crew))) 
+                : setResults(results.slice().sort((a, b) => parseFloat(a.crew) - parseFloat(b.crew))) ;
 
                 break;
 
-            case Sort.DESC:
+            case 'cargo':
 
-                setResults(results.slice().sort((a, b) => parseFloat(a.crew) - parseFloat(b.crew)));
+                sortAscToDescCargo ? 
+                setResults(results.slice().sort((a, b) => parseFloat(b.cargo_capacity) - parseFloat(a.cargo_capacity))) 
+                : setResults(results.slice().sort((a, b) => parseFloat(a.cargo_capacity) - parseFloat(b.cargo_capacity))) ;
 
                 break;
 
@@ -97,41 +113,37 @@ export const StarshipPage = () => {
 
     return (
         <div className="content">
-            <Header/>
+            <Header />
 
             <h1 className="body_title">Starship</h1>
             <div className="body_interactions">
-                <SearchForm query={query} setQuery={setQuery} />
+                <div className="body_filters">
+                    <SearchForm query={query} setQuery={setQuery} />
+                    <div className="sorter">
+                        <div className="select">
+                        <select value={sort} onChange={(value) => setSort(value.target.value)} >
+                            <option value={''} >Sin orden</option>
+                            <option  value={'crew'}  >Crew</option>
+                            <option value={'cargo'}  >Cargo</option>
+                        </select>
+                        </div>
+                           <div>
+                            {
+                               (sort == 'crew' && sortAscToDescCrew || sort == 'cargo' && sortAscToDescCargo) && <FontAwesomeIcon icon={faArrowDownWideShort} color={"white"} onClick={() => {
+                                    handleSort()
+                                    sort == 'crew' ? setSortAscToDescCrew(!sortAscToDescCrew): setSortAscToDescCargo(!sortAscToDescCargo);
+                                }} />}
 
-                {/* Aqui va el sort */}
-                <div className="sorter">
-                    {/* Iconito */}
-                    <div>
-                        {
-                            sortCrew == Sort.ASC && <FontAwesomeIcon icon={faArrowDownWideShort} color={"white"} onClick={() => {
-                                setSortCrew(Sort.DESC)
+                            {(sort == 'crew' && !sortAscToDescCrew || sort == 'cargo' && !sortAscToDescCargo) && <FontAwesomeIcon icon={faArrowUpWideShort} color={"white"} onClick={() => {
                                 handleSort()
+                                sort == 'crew' ? setSortAscToDescCrew(!sortAscToDescCrew): setSortAscToDescCargo(!sortAscToDescCargo);
                             }} />}
 
-                        {sortCrew == Sort.DESC && <FontAwesomeIcon icon={faArrowUpWideShort} color={"white"} onClick={() => {
-                            setSortCrew(Sort.ASC)
-                            handleSort()
-                        }} />}
-
-                        {sortCrew == Sort.NONE && <FontAwesomeIcon icon={faArrowsUpDown} color={"white"} onClick={() => {
-                            setSortCrew(Sort.ASC)
-
-                        }} />}
+                            {sort == '' && <span></span>}
+                        </div>
                     </div>
 
-                    {/* Select para el sort */}
-                    <select>
-                        <option value="Sin orden">Sin orden</option>
-                        <option value="Crew">Crew</option>
-                        <option value="Cargo">Cargo</option>
-                    </select>
                 </div>
-                
 
                 <div className="buttons_page">
                     {
@@ -141,14 +153,14 @@ export const StarshipPage = () => {
 
                     <button className="button_pagination_center">{page}</button>
                     {
-                        newPage &&
-                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
+                        newPage ?
+                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button> : <div className="button_void"></div>}
                 </div>
             </div>
             <div className="card_list">
                 {results.map((result, index) => (
                     <CardData
-                    cardImage={getImage(result.name)}
+                        cardImage={getImage(result.name)}
                         info1={"Cargo capacity: "}
                         info2={"Crew: "}
                         key={index}
@@ -158,7 +170,7 @@ export const StarshipPage = () => {
                     />
                 ))}
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

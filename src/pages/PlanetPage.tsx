@@ -75,8 +75,8 @@ export const PlanetPage = () => {
 
                     <button className="button_pagination_center">{page}</button>
                     {
-                        newPage &&
-                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
+                        newPage ?
+                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button> : <div className="button_void"></div>}
                 </div>
             </div>
             <div className="card_list">

@@ -8,8 +8,8 @@ export const Sidebar = () => {
   */
   return (
     <>
-      <nav className='side_nav'>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star Wars logo" className="nav_image" />
+      <nav className='sidebar'>
+        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star Wars logo" className="nav_image" />
         <ul>
           <li className="button_nav">
         

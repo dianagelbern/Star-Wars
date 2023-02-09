@@ -1,0 +1,15 @@
+.footer{
+    background-color: #555;
+    height: 70px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+}
+.footer_title{
+    font-size: $font-size-small;
+    color: $primary-color-text;
+    margin: 20px;
+}

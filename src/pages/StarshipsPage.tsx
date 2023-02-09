@@ -5,6 +5,7 @@ import { API_BASE } from "../const/constants";
 import { SearchForm } from "../components/SearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faArrowUpWideShort, faArrowDownWideShort, faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
+import { Footer } from "../components/Footer";
 
 export enum Sort {
     ASC,
@@ -72,11 +73,11 @@ export const StarshipPage = () => {
 
 
     return (
-        <div className="main_content">
-            <Header></Header>
+        <div className="content">
+            <Header/>
 
             <h1 className="body_title">Starship</h1>
-            <div className="subheader">
+            <div className="body_interactions">
                 <SearchForm query={query} setQuery={setQuery} />
 
                 {/* Aqui va el sort */}
@@ -121,7 +122,7 @@ export const StarshipPage = () => {
                         <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
                 </div>
             </div>
-            <div className="body_list">
+            <div className="card_list">
                 {results.map((result, index) => (
                     <CardData
                         info1={"Cargo capacity: "}
@@ -133,7 +134,7 @@ export const StarshipPage = () => {
                     />
                 ))}
             </div>
-
+            <Footer/>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { CardData } from "../components/CardData";
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SearchForm } from "../components/SearchForm";
 import { API_BASE } from "../const/constants";
@@ -31,25 +32,25 @@ export const PeoplePage = () => {
 
 
     return (
-        <div className="main_content">
-            <Header></Header>
+        <div className="content">
+            <Header/>
 
             <h1 className="body_title">People</h1>
-            <div className="subheader">
+            <div className="body_interactions">
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="buttons_page">
                     {
                         page > 1 &&
-                        <button className="button_pagination" onClick={() => setPage(page - 1)}><FontAwesomeIcon icon={faAngleLeft} color={"white"}/></button>
+                        <button  className="button_pagination" onClick={() => setPage(page - 1)}><FontAwesomeIcon icon={faAngleLeft} color={"white"}/></button>
                     }
 
                     <button className="button_pagination_center">{page}</button>
                     {
                         newPage &&
-                        <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
+                        <button  className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
                 </div>
             </div>
-            <div className="body_list">
+            <div className="card_list">
                 {results.map((result, index) => (
 
                     <CardData
@@ -62,6 +63,7 @@ export const PeoplePage = () => {
                     />
                 ))}
             </div>
+            <Footer/>
         </div>
     )
 }

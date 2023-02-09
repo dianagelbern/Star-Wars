@@ -5,24 +5,20 @@
     
 }
 
-.header > p{
-    font-size: 20px;
+.header p{
+    font-size: $font-size-medium;
     font-weight: 600;
-    color: white;
+    color: $primary-color-text;
     margin: 20px;
 }
-
 .icons_header{
+    display:flex;
+    justify-content: space-between;
+    margin-right: 30px;
+}
+.icon{
     margin-right: 10px;
     margin-top: 20px;
     font-size: 20px;
     margin-left: 20px;
-}
-
-.subheader{
-    display:flex;
-    justify-content: space-between;
-}
-.subheader p {
- color: white;   
 }

@@ -5,6 +5,7 @@ import { API_BASE } from "../const/constants";
 import { SearchForm } from "../components/SearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Footer } from "../components/Footer";
 
 export const VehiclePage = () => {
     const [query, setQuery] = useState("");
@@ -29,10 +30,10 @@ export const VehiclePage = () => {
 
     return (
 
-        <div className="main_content">
-            <Header></Header>
+        <div className="content">
+            <Header/>
                 <h1 className="body_title">Vehicles</h1>
-                <div className="subheader">
+                <div className="body_interactions">
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="buttons_page">
                     {
@@ -46,7 +47,7 @@ export const VehiclePage = () => {
                         <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
                 </div>
             </div>
-            <div className="body_list">
+            <div className="card_list">
                 {results.map((result, index) => (
                     <CardData
                         info1={"Max atmosphering speed: "}
@@ -58,6 +59,7 @@ export const VehiclePage = () => {
                     />
                 ))}
             </div>
+            <Footer/>
         </div>
     )
 }

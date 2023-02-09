@@ -1,0 +1,84 @@
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: $background-color-navbar;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.sidebar a {
+    display: block;
+    color: $primary-color-text;
+    padding: 16px;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.sidebar a.active {
+    background-color: $active-button-color;
+    color: $primary-color-text;
+    text-decoration: none;
+    font-size: $font-size-small;
+}
+
+.button_icon{
+    color: $primary-color-text;
+    margin-right: 10px;
+    font-size: $font-size-small;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: $primary-color-text;
+}
+
+div.content {
+    margin-left: 200px;
+    height: 1000px;
+    
+}
+
+
+.nav_image {
+    width: 80%;
+    padding: 30px;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
+
+    .nav_image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+       
+    }
+
+}

@@ -6,6 +6,7 @@ import '../styles/style.scss';
 import { SearchForm } from "../components/SearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, } from '@fortawesome/free-solid-svg-icons';
+import { Footer } from "../components/Footer";
 
 export const PlanetPage = () => {
     const [query, setQuery] = useState("");
@@ -33,11 +34,11 @@ export const PlanetPage = () => {
     }, [query, page]);
 
     return (
-        <div className="main_content">
-            <Header></Header>
+        <div className="content">
+            <Header/>
 
             <h1 className="body_title">Planets</h1>
-            <div className="subheader">
+            <div className="body_interactions">
                 <SearchForm query={query} setQuery={setQuery} />
                 <div className="buttons_page">
                     {
@@ -51,7 +52,7 @@ export const PlanetPage = () => {
                         <button className="button_pagination" onClick={() => setPage(page + 1)}><FontAwesomeIcon icon={faAngleRight} color={"white"} /></button>}
                 </div>
             </div>
-            <div className="body_list">
+            <div className="card_list">
                 {results.map((result, index) => (
                     <CardData
                         info1={"Terrain: "}
@@ -63,6 +64,7 @@ export const PlanetPage = () => {
                     />
                 ))}
             </div>
+            <Footer/>
         </div>
     )
 }

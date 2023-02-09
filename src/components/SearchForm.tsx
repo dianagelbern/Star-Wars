@@ -17,6 +17,7 @@ export const SearchForm = ({ query, setQuery }: { query: any, setQuery: any }) =
           onChange={handleTextInput}
           value={query}
           placeholder="Search"
+          
         />
       </form>
     );

@@ -6,7 +6,7 @@ import { PeoplePage } from './pages/PeoplePage';
 import { StarshipPage } from './pages/StarshipsPage';
 import { VehiclePage } from './pages/VehiclesPage';
 import { PlanetPage } from './pages/PlanetPage';
-import { Layout } from './components/Layout';
+import { Sidebar } from './components/Sidebar';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
 
 
         <BrowserRouter>
-          <Layout />
+          <Sidebar />
             
             <Routes>
               

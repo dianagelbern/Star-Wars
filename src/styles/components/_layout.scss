@@ -1,13 +1,8 @@
-.layout{
-    display: flex;
-    
-    height: 100vh;
-}
 
 .side_nav{
-    
+    position: fixed;
     background-color: #2B2B2B;
-    width: 270px;
+    width: 250px;
     height: 100%;
 }
 

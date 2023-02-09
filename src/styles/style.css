@@ -30,13 +30,6 @@
   overflow: hidden;
   overflow-y: scroll; }
 
-.main_content {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Poppins", Helvetica, sans-serif; }
-
 .body_title {
   font-size: 30px;
   font-weight: 700;
@@ -83,6 +76,7 @@
 .sorter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 20px;
   width: auto; }
 
@@ -104,13 +98,10 @@
   color: #77828e;
   margin: 30px; }
 
-.layout {
-  display: flex;
-  height: 100vh; }
-
 .side_nav {
+  position: fixed;
   background-color: #2B2B2B;
-  width: 270px;
+  width: 250px;
   height: 100%; }
 
 .nav_image {
@@ -146,8 +137,6 @@
 
 .header {
   height: 70px;
-  width: 100vw;
-  background-color: #3526b9;
   display: flex;
   justify-content: space-between; }
 
@@ -173,13 +162,7 @@
 body {
   font-family: "Poppins", Helvetica, sans-serif;
   /* variable usage */
-  background-color: #1B1A17;
-  display: flex;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* using the mixins function */ }
+  background-color: #1B1A17; }
 
 ul {
   list-style: none;

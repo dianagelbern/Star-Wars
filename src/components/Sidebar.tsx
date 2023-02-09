@@ -2,7 +2,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarth, faShuttleSpace, faUsers, faTruck } from '@fortawesome/free-solid-svg-icons'
 
-export const Layout = () => {
+export const Sidebar = () => {
   /*
   
   */
